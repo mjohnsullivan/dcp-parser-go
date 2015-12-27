@@ -38,6 +38,7 @@ const (
 
 // CPL struct is returned by the parser
 type CPL struct {
+	XML              string
 	Format           Format
 	ID               string
 	AnnotationText   string
@@ -136,6 +137,7 @@ func ParseCPL(xmlStr []byte) (*CPL, error) {
 		return nil, err
 	}
 	cpl, err := makeCPL(&cplXML)
+	cpl.XML = string(xmlStr)
 	return cpl, err
 }
 

@@ -106,6 +106,25 @@ func (dcp *DCP) Generate(dir string) error {
 	return nil
 }
 
+// GenerateAll searches a directory for DCPs, generates and returns them is an array
+func GenerateAll(rootDir string) ([]*DCP, error) {
+	var dcps []*DCP
+	files, err := ioutil.ReadDir(rootDir)
+	if err != nil {
+		return nil, err
+	}
+	for _, f := range files {
+		if f.IsDir() {
+			var dcp DCP
+			if err := dcp.Generate(filepath.Join(rootDir, f.Name())); err != nil {
+				return dcps, err
+			}
+			dcps = append(dcps, &dcp)
+		}
+	}
+	return dcps, nil
+}
+
 /*
 findAssetMap looks in a directory for an assetmap
 and if found returns its absolute path

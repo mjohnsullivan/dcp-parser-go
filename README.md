@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mjohnsullivan/dcp-parser-go.png)](http://travis-ci.org/mjohnsullivan/dcp-parser-go)
+
 Go DCP Parser
 =============
 

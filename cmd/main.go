@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/googlesamples/dcp"
+	"github.com/mjohnsullivan/dcp-parser-go"
 )
 
 func testDCP() {
